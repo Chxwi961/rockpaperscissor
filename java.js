@@ -1,34 +1,68 @@
+function getHumanChoice() {
+    let choice = prompt('Choose between Rock, Paper, Scissor.')
+    return choice.toLowerCase()
+}
 
-for (i=0 ; i<10; i++) {
-    let choice = Math.random()
-    let action;
-
-    if (choice < 1/3) {
-        action = 'Rock'
-    } else if (choice >= 1/3 && choice < 2/3) {
-        action  = 'Paper'
+function getComputerChoice() {
+    let rand = Math.random() /* Generates from 0 to 1 */
+    let computerChoice
+    if (rand < 1/3) { /* 33% chance */
+        computerChoice = 'rock'
+    } else if (rand >= 1/3 && rand < 2/3) { /* 33% chance */
+        computerChoice = 'paper'
+    } else {    /* still 33% chance */
+        computerChoice = 'scissor'
+    }
+    return computerChoice
+}
+function pRound() {
+    human = getHumanChoice() 
+    computer = getComputerChoice() 
+    console.log(computer)
+    if (human == 'scissor' && computer == 'paper') {
+        return "human"
+    } else if (human == 'scissor' && computer == 'rock') {
+        return "computer" 
+    } else if (human == 'paper' && computer == 'rock') {
+        return "human" 
+    } else if (human == 'paper' && computer == 'scissor') {
+        return "computer" 
+    } else if (human == 'rock' && computer == 'scissor') {
+        return "human" 
+    } else if (human == 'rock' && computer == 'paper') {
+        return "computer"
     } else {
-        action = 'Scissor'
+        return 0 
+    }
+}
+
+function score() {
+    result = pRound()
+    if (result == "human" ) {
+        humanScore += 1 
+    } else if (result == "computer") {
+        computerScore += 1 
+    } else {
+        console.log("It's a tie!")
     }
 
+    console.log(`Current score: \nHUMAN:${humanScore}\nCOMPUTER:${computerScore}`)
+}
 
-    userChoice = prompt("Chose rock paper or scissor")
 
-    if (userChoice == action.toLowerCase()) {
-        console.log(`Console chose ${action}, it's a tie.`)
-    } else if (userChoice == 'rock' && action == 'Scissor') {
-        console.log(`Machine picked ${action}. You win!`)
-    } else if (userChoice == 'rock' && action == 'Paper') {
-        console.log(`Machine picked ${action}. You loose.`)
-    } else if (userChoice == 'paper' && action == 'Rock') {
-        console.log(`Machine picked ${action}. You win!`)
-    } else if (userChoice == 'paper' && action == 'Scissor') {
-        console.log(`Machine picked ${action}. You loose.`)
-    } else if (userChoice == 'scissor' && action == 'Paper') {
-        console.log(`Machine picked ${action}. You win!`)
-    } else if (userChoice == 'scissor' && action == 'Rock') {
-        console.log(`Machine picked ${action}. You loose.`)
-    } else {
-        console.log('Idk man something is weird')
-    }
+let humanScore = 0
+let computerScore = 0 
+
+score(humanScore, computerScore)
+score(humanScore, computerScore)
+score(humanScore, computerScore)
+score(humanScore, computerScore)
+score(humanScore, computerScore)
+
+if (humanScore > computerScore) {
+    console.log('Human wins!')
+} else if (humanScore < computerScore) {
+    console.log('Computer wins.')
+} else {
+    console.log('Its a tie.')
 }
