@@ -1,6 +1,7 @@
 const buttons = document.querySelectorAll("button")
 const display = document.querySelector(".score")
 const displayComputer = document.querySelector(".computer")
+const displayWinner = document.querySelector(".winner")
 let playerChoice;
 let computerChoiced; 
 
@@ -18,6 +19,27 @@ function getComputerChoice() {
     return computerChoice
 }
 
+function pRound(h, c) {
+    human = h
+    computer = c
+    if (human == 'scissor' && computer == 'paper') {
+        return "human"
+    } else if (human == 'scissor' && computer == 'rock') {
+        return "computer" 
+    } else if (human == 'paper' && computer == 'rock') {
+        return "human" 
+    } else if (human == 'paper' && computer == 'scissor') {
+        return "computer" 
+    } else if (human == 'rock' && computer == 'scissor') {
+        return "human" 
+    } else if (human == 'rock' && computer == 'paper') {
+        return "computer"
+    } else {
+        return "No one! It's a tie!"
+    }
+}
+
+
 
 buttons.forEach((button) =>{
     button.addEventListener("click", (e) => {
@@ -27,7 +49,8 @@ buttons.forEach((button) =>{
         computerChoiced = getComputerChoice() 
         displayComputer.textContent = "Machine picked: " + computerChoiced
 
-
+        let result = pRound(playerChoice, computerChoiced)
+        displayWinner.textContent = "And the winner is... " + result
 
     })
 })
