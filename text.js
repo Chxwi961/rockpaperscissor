@@ -67,6 +67,18 @@ buttons.forEach((button) =>{
 
         displayComputerScore.innerHTML = "Computer score: <br> " + computerAmount
         displayPlrScore.innerHTML = "Human score: <br>" + playerAmount
+
+        if (playerAmount == 5){ 
+            displayPlrScore.textContent = "Human WINS!"
+            displayComputerScore.textContent = "Select an action to play again"
+            playerAmount = 0 
+            computerAmount = 0 
+        } else if (computerAmount == 5) {
+            displayPlrScore.textContent = "Select an action to play again"
+            displayComputerScore.textContent = "Computer WINS!"
+            playerAmount = 0 
+            computerAmount = 0 
+        }
     })
 })
 
