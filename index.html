@@ -12,6 +12,10 @@
         <h6>Rock Paper Scissor</h3>
     </header>
 
+    <div class="intro">
+        <p> First to 3 wins. Ultimate fight against machine!</p>
+    </div>
+
     <div class="mainC">
         <button class="rock">🪨</button>
         <button class="paper">📄</button>
@@ -19,14 +23,23 @@
     </div>
 
     <div class="scores">
-        <h3 class="score">Hello world!</h3>
-        <h3 class="computer">Hello world!</h3>
+        <h3 class="score">You picked: </h3>
+        <h3 class="computer">Machine picked: </h3>
     </div>
 
     <div class="winner">
-        <h1>Hello world!</h1>
+        <h1></h1>
     </div>
-    
+
+    <div class="tracker">
+        <p>Score tracker</p>
+
+        <div class="different">
+            <p id="humanscore">Human score: <br> 0 </p>
+            <p id="computerscore">Computer score: <br> 0 </p>
+        </div>
+    </div>
+
     <script src="./text.js"></script>
 </body>
 </html>
