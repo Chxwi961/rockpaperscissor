@@ -53,12 +53,6 @@ function score() {
 let humanScore = 0
 let computerScore = 0 
 
-score(humanScore, computerScore)
-score(humanScore, computerScore)
-score(humanScore, computerScore)
-score(humanScore, computerScore)
-score(humanScore, computerScore)
-
 if (humanScore > computerScore) {
     console.log('Human wins!')
 } else if (humanScore < computerScore) {
